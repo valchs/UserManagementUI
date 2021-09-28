@@ -1,5 +1,8 @@
 <template>
-  <div class="about">
-    <h1>This is an about page</h1>
+  <div class="about pa-6">
+    <h1>About this project</h1>
+    <p>
+      This project was created as a part of the homework.
+    </p>
   </div>
 </template>
