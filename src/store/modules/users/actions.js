@@ -103,6 +103,7 @@ export default {
         const respData = await resp.json();
 console.log(respData)
         if(!resp.ok) {
+            
             // errrrrr
             console.log('error')
         }
