@@ -1,7 +1,9 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer 
-    v-model="drawer" app>
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+    >
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="text-h6 mb-7">
@@ -10,7 +12,7 @@
         </v-list-item-content>
       </v-list-item>
 
-      <v-divider></v-divider>
+      <v-divider />
 
       <v-list
         dense
@@ -34,25 +36,25 @@
     </v-navigation-drawer>
 
     <v-app-bar app>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+      <v-app-bar-nav-icon @click="drawer = !drawer" />
 
       <v-toolbar-title>Manage Users</v-toolbar-title>
     </v-app-bar>
 
     <v-main>
-      <router-view></router-view>
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
-  export default {
-    data: () => ({ 
-      drawer: null,
-      items: [
-          { title: 'Users', icon: 'mdi-account', to: '/' },
-          { title: 'About', icon: 'mdi-help-box', to: '/about' },
-        ],
-    }),
-  }
+export default {
+  data: () => ({
+    drawer: null,
+    items: [
+      { title: 'Users', icon: 'mdi-account', to: '/' },
+      { title: 'About', icon: 'mdi-help-box', to: '/about' }
+    ]
+  })
+}
 </script>
