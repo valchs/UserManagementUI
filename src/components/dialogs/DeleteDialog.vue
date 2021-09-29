@@ -50,6 +50,7 @@ export default {
     },
     deleteTask () {
       this.closeDialog()
+      this.$store.dispatch('users/deleteUser', this.id)
       this.$emit('deleteUser', this.id)
     }
   }

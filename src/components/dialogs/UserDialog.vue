@@ -48,7 +48,10 @@
 
 <script>
 export default {
-  props: ['value', 'user'],
+  props: {
+    value: Boolean,
+    user: Object
+  },
   data () {
     return {
       inputRules: [
@@ -72,7 +75,7 @@ export default {
     },
     submit () {
       if (this.$refs.form.validate()) {
-        console.log(this.user.firstName, this.user.email)
+        this.$store.dispatch('users/editUser', this.user)
         this.closeDialog()
       }
     }

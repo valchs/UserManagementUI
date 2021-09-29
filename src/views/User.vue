@@ -64,16 +64,13 @@
     <delete-dialog
       :id="selectedUser.id"
       v-model="showDeleteDialog"
-      @deleteUser="this.deleteUser"
     />
     <user-dialog
       v-model="showUserDialog"
       :user="selectedUser"
-      @deleteTask="deleteUser"
     />
     <new-user-dialog
       v-model="showNewUserDialog"
-      @addUser="this.addUser"
     />
   </div>
 </template>
@@ -111,17 +108,9 @@ export default {
   methods: {
     openDialog (dialog, user = null) {
       if (dialog !== 'newUser') this.selectedUser = user
-      // this.taskId = user.id;
-      // this.title = user.title;
       if (dialog === 'delete') this.showDeleteDialog = true
       if (dialog === 'details') this.showUserDialog = true
       if (dialog === 'newUser') this.showNewUserDialog = true
-    },
-    addUser (user) {
-      // console.log(user)
-    },
-    deleteUser (id) {
-      console.log('id: ' + id)
     },
     async loadUsers (refresh = false) {
       this.isLoading = true

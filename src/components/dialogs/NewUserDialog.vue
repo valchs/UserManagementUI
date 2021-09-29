@@ -75,7 +75,6 @@ export default {
   methods: {
     submit () {
       if (this.$refs.form.validate()) {
-        // console.log(this.firstName, this.lastName, this.phoneNumber, this.email)
         this.usr = {
           firstName: this.firstName,
           lastName: this.lastName,
@@ -83,7 +82,6 @@ export default {
           email: this.email
         }
         this.$store.dispatch('users/registerUser', this.usr)
-        this.$emit('addUser', this.usr)
         this.closeDialog()
       }
     },
