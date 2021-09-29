@@ -32,7 +32,7 @@
             v-model="email"
             label="Email"
             prepend-icon="mdi-email"
-            :rules="inputRules"
+            :rules="emailRules"
           />
           <v-btn
             text
@@ -59,7 +59,10 @@ export default {
       phoneNumber: '',
       email: '',
       inputRules: [
-        v => v.length >= 1 || 'This field is required'
+        v => v.length >= 2 || 'Minimum length is 2'
+      ],
+      emailRules: [
+        v => !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
       ],
       usr: {}
     }
@@ -77,7 +80,7 @@ export default {
   watch: {
     show: function (newValue, old) {
       if (!newValue) {
-        this.$refs.form.reset()
+        this.$refs.form.resetValidation()
       }
     }
   },
@@ -91,8 +94,13 @@ export default {
           email: this.email
         }
         this.$store.dispatch('users/registerUser', this.usr)
-        this.clearForm()
-        this.closeDialog()
+          .catch(() => {
+            alert(1)
+          })
+          .finally(() => {
+            this.clearForm()
+            this.closeDialog()
+          })
       }
     },
     closeDialog () {

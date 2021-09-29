@@ -31,7 +31,7 @@
             <v-text-field
               v-model="user.email"
               label="E-mail"
-              :rules="inputRules"
+              :rules="emailRules"
             />
             <v-btn
               color="warning"
@@ -60,7 +60,10 @@ export default {
   data () {
     return {
       inputRules: [
-        v => v.length >= 1 || 'This field is required'
+        v => v.length >= 2 || 'Minimum length is 2'
+      ],
+      emailRules: [
+        v => !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
       ]
     }
   },
