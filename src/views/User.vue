@@ -8,7 +8,7 @@
           color="primary"
           @click="openDialog('newUser')"
         >
-          Add new user
+          Add new
         </v-btn>
       </v-row>
       <v-row
@@ -28,16 +28,16 @@
               height="250"
               src="@/assets/user-logo.png"
             />
-            <v-card-title>User Info</v-card-title>
+            <v-card-title>User {{ user.id }}</v-card-title>
             <v-card-text>
               <div class="my-4 text-subtitle-1">
-                Name: {{ user.firstName }} {{ user.lastName }}
+                <span class="font-weight-bold">Name:</span> {{ user.firstName }} {{ user.lastName }}
               </div>
               <div class="my-4 text-subtitle-1">
-                Phone number: {{ user.phoneNumber }}
+                <span class="font-weight-bold">Phone number:</span> {{ user.phoneNumber }}
               </div>
               <div class="my-4 text-subtitle-1">
-                Email: {{ user.email }}
+                <span class="font-weight-bold">E-mail:</span> {{ user.email }}
               </div>
             </v-card-text>
             <v-divider class="mx-4" />

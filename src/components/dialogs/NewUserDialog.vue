@@ -30,7 +30,7 @@
           />
           <v-text-field
             v-model="email"
-            label="Email"
+            label="E-mail"
             prepend-icon="mdi-email"
             :rules="emailRules"
           />
