@@ -6,7 +6,7 @@
         <v-btn
           class="mt-3"
           color="primary"
-          @click.native="openDialog('newUser')"
+          @click="openDialog('newUser')"
         >
           Add new user
         </v-btn>
@@ -45,14 +45,14 @@
               <v-btn
                 color="indigo darken-4"
                 text
-                @click.native="openDialog('details', user)"
+                @click="openDialog('details', user)"
               >
                 Details
               </v-btn>
               <v-btn
                 color="red lighten-2"
                 text
-                @click.native="openDialog('delete', user)"
+                @click="openDialog('delete', user)"
               >
                 Delete
               </v-btn>

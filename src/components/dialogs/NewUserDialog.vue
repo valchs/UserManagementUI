@@ -49,7 +49,9 @@
 
 <script>
 export default {
-  props: ['value'],
+  props: {
+    value: Boolean
+  },
   data () {
     return {
       firstName: '',
@@ -72,6 +74,13 @@ export default {
       }
     }
   },
+  watch: {
+    show: function (newValue, old) {
+      if (!newValue) {
+        this.$refs.form.reset()
+      }
+    }
+  },
   methods: {
     submit () {
       if (this.$refs.form.validate()) {
@@ -82,11 +91,18 @@ export default {
           email: this.email
         }
         this.$store.dispatch('users/registerUser', this.usr)
+        this.clearForm()
         this.closeDialog()
       }
     },
     closeDialog () {
       this.show = false
+    },
+    clearForm () {
+      this.firstName = ''
+      this.lastName = ''
+      this.phoneNumber = ''
+      this.email = ''
     }
   }
 }

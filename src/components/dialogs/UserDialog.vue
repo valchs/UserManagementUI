@@ -50,7 +50,12 @@
 export default {
   props: {
     value: Boolean,
-    user: Object
+    user: {
+      type: Object,
+      default: function () {
+        return {}
+      }
+    }
   },
   data () {
     return {
@@ -66,6 +71,13 @@ export default {
       },
       set (value) {
         this.$emit('input', value)
+      }
+    }
+  },
+  watch: {
+    show: function (newValue, old) {
+      if (!newValue) {
+        this.$store.dispatch('users/loadUsers')
       }
     }
   },

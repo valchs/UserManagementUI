@@ -33,7 +33,13 @@
 
 <script>
 export default {
-  props: ['value', 'id'],
+  props: {
+    value: Boolean,
+    id: {
+      type: Number,
+      default: 0
+    }
+  },
   computed: {
     show: {
       get () {
