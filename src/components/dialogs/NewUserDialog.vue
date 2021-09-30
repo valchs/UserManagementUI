@@ -95,7 +95,6 @@ export default {
         }
         this.$store.dispatch('users/registerUser', this.usr)
           .catch(() => {
-            alert(1)
           })
           .finally(() => {
             this.clearForm()

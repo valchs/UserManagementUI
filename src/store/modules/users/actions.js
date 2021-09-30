@@ -3,7 +3,7 @@ import axios from 'axios'
 export default {
   loadUsers (context) {
     return new Promise((resolve, reject) => {
-      axios.get('https://localhost:44309/api/Users')
+      axios.get('https://usrmanagementapi.azurewebsites.net/api/Users')
         .then(d => {
           context.commit('setUsers', d.data)
           resolve(d.data)
@@ -15,12 +15,10 @@ export default {
   },
   registerUser (context, payload) {
     return new Promise((resolve, reject) => {
-      axios.post('https://localhost:44309/api/Users', payload)
-        .then(() => {
-          return context.dispatch('loadUsers')
-        })
-        .then(d => {
-          resolve()
+      axios.post('https://usrmanagementapi.azurewebsites.net/api/Users', payload)
+        .then((d) => {
+          context.commit('addUser', d.data)
+          resolve(d.data)
         })
         .catch(e => {
           reject(e)
@@ -30,7 +28,7 @@ export default {
   editUser (context, payload) {
     const { id, ...usr } = payload
     return new Promise((resolve, reject) => {
-      axios.put(`https://localhost:44309/api/Users/${payload.id}`, usr)
+      axios.put(`https://usrmanagementapi.azurewebsites.net/api/Users/${payload.id}`, usr)
         .then(() => {
           return context.dispatch('loadUsers')
         })
@@ -44,7 +42,7 @@ export default {
   },
   deleteUser (context, payload) {
     return new Promise((resolve, reject) => {
-      axios.delete(`https://localhost:44309/api/Users/${payload}`)
+      axios.delete(`https://usrmanagementapi.azurewebsites.net/api/Users/${payload}`)
         .then(() => {
           return context.dispatch('loadUsers')
         })
