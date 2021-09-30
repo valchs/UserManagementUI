@@ -26,7 +26,7 @@
             <v-text-field
               v-model="user.phoneNumber"
               label="Phone Number"
-              :rules="inputRules"
+              :rules="numberRules"
             />
             <v-text-field
               v-model="user.email"
@@ -64,6 +64,9 @@ export default {
       ],
       emailRules: [
         v => !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
+      ],
+      numberRules: [
+        v => !isNaN(v) || 'Phone number must be valid'
       ]
     }
   },

@@ -26,7 +26,7 @@
             v-model="phoneNumber"
             label="Phone number"
             prepend-icon="mdi-cellphone"
-            :rules="inputRules"
+            :rules="numberRules"
           />
           <v-text-field
             v-model="email"
@@ -63,6 +63,9 @@ export default {
       ],
       emailRules: [
         v => !v || /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
+      ],
+      numberRules: [
+        v => !isNaN(v) || 'Phone number must be valid'
       ],
       usr: {}
     }
