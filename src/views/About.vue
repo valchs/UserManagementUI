@@ -4,7 +4,7 @@
       Vue.js Frontend
     </h1>
     <p>
-      This project is a frontend implementation using Vue.js + Vuetify for my backend project.
+      This project is a frontend implementation using Vue.js + Vuetify for my backend project..
     </p>
     <p class="mb-10">
       Backend web API was created on .NET Core 3.1 and data is stored in SQL Server database. Both API and database is hosted on Azure.<br>
